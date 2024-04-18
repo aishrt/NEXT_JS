@@ -36,8 +36,7 @@ const Profile = () => {
   return (
     <>
       <h3>Hello {userData ? userData.username : "User"}!</h3>
-      <Link href={`/profile/${userData?._id}`}>Goto</Link>
-      <div>This is a profile page.</div>
+      <div>This is a profile page through id.</div>
       <div>
         <button style={{ width: "100px" }} onClick={handleLogout}>
           Logout

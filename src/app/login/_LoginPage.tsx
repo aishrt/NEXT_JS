@@ -2,17 +2,18 @@
 import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
-import { toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  console.log("Renderd");
+  console.log("Renderd"); 
 
   const onLogin = async () => {
     try {
@@ -54,7 +55,9 @@ export default function LoginPage() {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="password"
       />
-      <button onClick={onLogin}>Login</button>
+      <button onClick={onLogin}>
+        {buttonDisabled ? "No signup" : "Signup"}
+      </button>
       <Link href="/register">Visit Register page</Link>
     </div>
   );
